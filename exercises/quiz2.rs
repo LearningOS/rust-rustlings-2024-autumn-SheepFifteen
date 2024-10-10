@@ -20,8 +20,6 @@
 //
 // No hints this time!
 
-// I AM NOT DONE
-
 pub enum Command {
     Uppercase,
     Trim,
@@ -46,7 +44,7 @@ mod my_module {
                 }
                 Command::Append(n) => {
                     let mut new_string = string.clone();
-                    new_string.extend(std::iter::repeat(' ').take(*n as usize));
+                    new_string.extend(std::iter::repeat(' ').take(*n));
                     output.push(new_string);
                 }
             }
@@ -59,7 +57,7 @@ mod my_module {
 mod tests {
     // TODO: What do we need to import to have `transformer` in scope?
     use super::Command;
-    use my_modul::transformer;
+    use my_module::transformer;
 
     #[test]
     fn it_works() {

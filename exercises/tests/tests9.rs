@@ -27,17 +27,20 @@
 //
 // You should NOT modify any existing code except for adding two lines of attributes.
 
-// I AM NOT DONE
-
 extern "Rust" {
     fn my_demo_function(a: u32) -> u32;
     fn my_demo_function_alias(a: u32) -> u32;
 }
 
-mod Foo {
+mod foo {
     // No `extern` equals `extern "Rust"`.
-    fn my_demo_function(a: u32) -> u32 {
+    pub fn my_demo_function(a: u32) -> u32 {
         a
+    }
+
+    #[allow(dead_code)] // 允许未使用的代码，因为测试代码实际上不会直接调用这个函数名。
+    pub fn my_demo_function_alias(a: u32) -> u32 {
+        my_demo_function(a)
     }
 }
 

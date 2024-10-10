@@ -32,10 +32,9 @@ impl Package {
         self.sender_country != self.recipient_country
     }
 
-    fn get_fees(&self, cents_per_gram: i32) -> f64 {
+    fn get_fees(&self, cents_per_gram: i32) -> i32 {
         // Something goes here...
-        self.weight_in_grams as f64 * cents_per_gram as f64 / 100.0
-        // as f64 类型转换
+        self.weight_in_grams * cents_per_gram
     }
 }
 

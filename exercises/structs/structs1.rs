@@ -7,12 +7,12 @@
 
 struct ColorClassicStruct {
     // TODO: Something goes here
-    pub red: i32,
-    pub green: i32,
-    pub blue: i32,
+    red: u8,
+    green: u8,
+    blue: u8,
 }
 
-struct ColorTupleStruct(i32, i32, i32 /* TODO: Something goes here */);
+struct ColorTupleStruct(u8, u8, u8 /* TODO: Something goes here */);
 
 #[derive(Debug)]
 struct UnitLikeStruct;

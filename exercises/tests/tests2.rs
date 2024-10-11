@@ -11,6 +11,6 @@ mod tests {
     #[test]
     fn you_can_assert_eq() {
         assert_eq!(2 + 2, 4, "This test fails if 2 + 2 is not equal to 4");
-        assert_eq!(2 + 2, 3, "This test fails if 2 + 2 is not equal to 4");
+        //assert_eq!(2 + 2, 3, "This test fails if 2 + 2 is not equal to 4");
     }
 }

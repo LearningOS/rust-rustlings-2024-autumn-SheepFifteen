@@ -41,8 +41,11 @@ unsafe fn modify_by_address(address: usize) {
         let mut_ptr: *mut u32 = address as *mut u32;
 
         // Dereference the pointer to get a mutable reference to the value.
+        if !ptr.is_null() {
+            *ptr = 0xAABBCCDD;
+        }
         // We are using `std::ptr::write` to avoid any potential aliasing issues.
-        std::ptr::write(mut_ptr, 0xAABBCCDD);
+        //std::ptr::write(mut_ptr, 0xAABBCCDD);
     }
 }
 

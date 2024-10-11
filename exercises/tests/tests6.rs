@@ -20,14 +20,10 @@ unsafe fn raw_pointer_to_box(ptr: *mut Foo) -> Box<Foo> {
     // simply reconstruct the box from that pointer.
     // let mut ret: Box<Foo> = unsafe { Box::from_raw(ptr) };
     //todo!("The rest of the code goes here")
-    if !ptr.is_null() {
-        unsafe {
-            let box_ptr = Box::from_raw(ptr);
-            box_ptr
-        }
-    } else {
-        panic!("Tried to create a Box from a null pointer");
-    }
+    let mut ret: Box<Foo> = unsafe { Box::from_raw(ptr) };
+
+    ret.b = Some("hello".to_owned());
+    ret
 }
 
 #[cfg(test)]

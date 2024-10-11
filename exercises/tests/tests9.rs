@@ -38,7 +38,7 @@ mod foo {
         a
     }
 
-    #[allow(dead_code)] // 允许未使用的代码，因为测试代码实际上不会直接调用这个函数名。
+    #[no_mangle] // 允许未使用的代码，因为测试代码实际上不会直接调用这个函数名。
     pub fn my_demo_function_alias(a: u32) -> u32 {
         my_demo_function(a)
     }
@@ -57,8 +57,8 @@ mod tests {
         // SAFETY: We know those functions are aliases of a safe
         // Rust function.
         unsafe {
-            my_demo_function(123);
-            my_demo_function_alias(456);
+            assert_eq!(my_demo_function(123), 123);
+            assert_eq!(my_demo_function_alias(456), 456);
         }
     }
 }

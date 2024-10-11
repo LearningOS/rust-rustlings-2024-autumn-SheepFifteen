@@ -39,14 +39,18 @@ mod tests {
         //     assert_eq!(integer, cursor);
         //     cursor -= 1;
         // }
-        while let integer = optional_integers.pop() {
-            if let Some(expected) = cursor.checked_sub(1) {
-                // 使用 checked_sub 避免溢出
-                assert_eq!(integer, expected);
-                cursor = expected;
-            } else {
-                panic!("Underflow error");
-            }
+        // while let integer = optional_integers.pop() {
+        //     if let Some(expected) = cursor.checked_sub(1) {
+        //         // 使用 checked_sub 避免溢出
+        //         assert_eq!(integer, expected);
+        //         cursor = expected;
+        //     } else {
+        //         panic!("Underflow error");
+        //     }
+        // }
+        while let Some(Some(integer)) = optional_integers.pop() {
+            assert_eq!(integer, cursor);
+            cursor -= 1;
         }
 
         assert_eq!(cursor, 0);

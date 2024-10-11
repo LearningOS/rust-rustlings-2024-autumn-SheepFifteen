@@ -45,6 +45,10 @@ mod tests {
     #[test]
     fn negative_height() {
         // This test should check if program panics when we try to create rectangle with negative height
-        let _rect = Rectangle::new(10, -10);
+        //let _rect = Rectangle::new(10, -10);
+        let result = std::panic::catch_unwind(|| {
+            Rectangle::new(10, -10);
+        });
+        assert!(result.is_err());
     }
 }

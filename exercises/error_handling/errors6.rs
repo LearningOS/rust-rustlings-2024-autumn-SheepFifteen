@@ -26,7 +26,7 @@ impl ParsePosNonzeroError {
     // fn from_parseint...
     // 将 ParseIntError 转换为 ParsePosNonzeroError
     fn from_parseint(err: ParseIntError) -> ParsePosNonzeroError {
-        ParsePosNonzeroError::ParseError(err)
+        ParsePosNonzeroError::ParseInt(err)
     }
 }
 

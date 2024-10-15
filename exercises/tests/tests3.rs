@@ -17,11 +17,11 @@ mod tests {
 
     #[test]
     fn is_true_when_even() {
-        assert!(is_even(2), "the number is not even");
+        assert!(is_even(2));
     }
 
     #[test]
     fn is_false_when_odd() {
-        assert!(is_even(5), "the number is not even");
+        assert!(!is_even(5));
     }
 }

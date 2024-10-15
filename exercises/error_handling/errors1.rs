@@ -19,7 +19,7 @@ pub fn generate_nametag_text(name: String) -> Result<String, String> {
     if name.is_empty() {
         Err("`name` was empty; it must be nonempty.".into())
     } else {
-        Ok(("Hi! My name is {}".into(), name))
+        Ok(format!("Hi! My name is {}", name))
     }
 }
 

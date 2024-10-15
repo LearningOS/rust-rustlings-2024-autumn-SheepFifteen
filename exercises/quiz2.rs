@@ -35,19 +35,18 @@ mod my_module {
         let mut output: Vec<String> = vec![];
         for (string, command) in input.iter() {
             // TODO: Complete the function body. You can do it!
-            match command {
-                Command::Uppercase => {
-                    output.push(string.to_uppercase());
+            let result = match command {
+                Command::Uppercase => string.to_uppercase(),
+                Command::Trim => string.trim().to_string(),
+                Command::Append(u) => {
+                    let mut appended_string = string.clone();
+                    for _ in 0..*u {
+                        appended_string.push_str("bar");
+                    }
+                    appended_string
                 }
-                Command::Trim => {
-                    output.push(string.trim().to_string());
-                }
-                Command::Append(n) => {
-                    let mut new_string = string.clone();
-                    new_string.extend(std::iter::repeat(' ').take(*n));
-                    output.push(new_string);
-                }
-            }
+            };
+            output.push(result);
         }
         output
     }
@@ -57,7 +56,7 @@ mod my_module {
 mod tests {
     // TODO: What do we need to import to have `transformer` in scope?
     use super::Command;
-    use my_module::transformer;
+    use crate::my_module::*;
 
     #[test]
     fn it_works() {

@@ -17,7 +17,7 @@ fn main() {
 
     //let my_empty_vec = vec![1, 2, 3, 4, 5].resize(0, 5);
     let empty_vec: Vec<i32> = Vec::new();
-    println!("This Vec is empty, see? {:?}", my_empty_vec);
+    println!("This Vec is empty, see? {:?}", empty_vec);
 
     let mut value_a = 45;
     let mut value_b = 66;

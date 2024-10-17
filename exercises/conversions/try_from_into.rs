@@ -34,6 +34,14 @@ enum IntoColorError {
 // Note that the implementation for tuple and array will be checked at compile
 // time, but the slice implementation needs to check the slice length! Also note
 // that correct RGB color values must be integers in the 0..=255 range.
+// 检查值是否在 0..=255 范围内的辅助函数
+fn check_range(value: i16) -> Result<u8, IntoColorError> {
+    if value >= 0 && value <= 255 {
+        Ok(value as u8)
+    } else {
+        Err(IntoColorError::IntConversion)
+    }
+}
 
 // Tuple implementation
 impl TryFrom<(i16, i16, i16)> for Color {

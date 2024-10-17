@@ -38,7 +38,7 @@ unsafe fn modify_by_address(address: usize) {
     // Cast the address back to a mutable pointer to a u32.
     unsafe {
         // Cast the address back to a mutable pointer to a u32.
-        let mut_ptr: *mut u32 = address as *mut u32;
+        let ptr: *mut u32 = address as *mut u32;
 
         // Dereference the pointer to get a mutable reference to the value.
         if !ptr.is_null() {

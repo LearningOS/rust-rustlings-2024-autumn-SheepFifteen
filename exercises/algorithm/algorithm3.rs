@@ -4,7 +4,7 @@
     you can use bubble sorting, insertion sorting, heap sorting, etc.
 */
 
-fn sort<T>(array: &mut [T]) {
+fn sort<T: PartialOrd>(array: &mut [T]) {
     //TODO
     if array.len() <= 1 {
         return;
@@ -25,6 +25,22 @@ fn sort<T>(array: &mut [T]) {
         }
     }
 }
+
+//fule
+fn partition<T: PartialOrd>(array: &mut [T], low: usize, high: usize) -> usize {
+    let pivot = high; // 选择最后一个元素作为基准
+    let mut i = low; // i 用来表示小于 pivot 的区域的右边界
+
+    for j in low..high {
+        if array[j] < array[pivot] {
+            array.swap(i, j); // 将小于 pivot 的元素移到前面
+            i += 1;
+        }
+    }
+    array.swap(i, high); // 将基准点放在正确位置
+    i
+}
+
 #[cfg(test)]
 mod tests {
     use super::*;
